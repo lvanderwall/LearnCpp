@@ -1,23 +1,9 @@
-#include <iostream>     // for std::cin, std::cout and std::endl
+// #include <iostream> not necessary: It's not used in this file!
 
 
-// read one integer from console
-int readNumber()
-{
-    std::cout << "Enter an integer: ";
-
-    int x;
-    std::cin >> x;
-
-    return x;
-}
-
-
-// print output line
-void writeAnswer(int x)
-{
-    std::cout << "The answer is: " << x << std::endl;
-}
+// forward declarations for functions in io.cpp
+int readNumber();           // read one integer from console
+void writeAnswer(int x);    // print output line
 
 
 int main()
