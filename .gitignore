@@ -1,6 +1,7 @@
 # Code::Blocks
 *.depend
 *.layout
+*build_log.html
 
 # Compiled files
 *.app
@@ -10,5 +11,8 @@
 *.obj
 *.out
 
-# CPP-Tutorial Errata Reminder
+# CPP-Tutorial errata reminder
 errata.txt
+
+# CPP-Tutorial test folder
+_test/**/*
