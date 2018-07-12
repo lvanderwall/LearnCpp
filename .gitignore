@@ -1,0 +1,14 @@
+# Code::Blocks
+*.depend
+*.layout
+
+# Compiled files
+*.app
+*.exe
+*.lib
+*.o
+*.obj
+*.out
+
+# CPP-Tutorial Errata Reminder
+errata.txt
