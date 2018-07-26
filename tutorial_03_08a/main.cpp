@@ -13,5 +13,8 @@ int main()
 
     myArticleFlags |= option_viewed;    // set article as viewed
 
+    if(myArticleFlags & option_deleted) // if article was deleted...
+        std::cout << "Deleted!\n";
+
     return 0;
 }
