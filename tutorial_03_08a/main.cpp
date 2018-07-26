@@ -16,5 +16,7 @@ int main()
     if(myArticleFlags & option_deleted) // if article was deleted...
         std::cout << "Deleted!\n";
 
+    myArticleFlags &= ~option_favorited;// clear article as favorite
+
     return 0;
 }
