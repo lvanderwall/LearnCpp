@@ -1,4 +1,4 @@
-#define quiz1
+#define quiz2
 
 #ifdef quiz1
 #include <iostream>
@@ -55,3 +55,63 @@ int main()
     return 0;
 }
 #endif // quiz1
+#ifdef quiz2
+#include <iostream>
+#include <string>       // for std::string
+
+
+// enum class of all animals
+enum class Animal {
+    CAT,
+    CHICKEN,
+    DOG,
+    GOAT,
+    OSTRICH,
+    PIG
+};
+
+
+// returns animal name as a string
+std::string getAnimalName(Animal animal)
+{
+    switch(animal) {
+        case Animal::CAT:       return "cat";
+        case Animal::CHICKEN:   return "chicken";
+        case Animal::DOG:       return "dog";
+        case Animal::GOAT:      return "goat";
+        case Animal::OSTRICH:   return "ostrich";
+        case Animal::PIG:       return "pig";
+        default:                return "???";
+    }
+}
+
+
+// prints formatted string to console
+void printNumberOfLegs(Animal animal)
+{
+    int legs;
+    switch(animal) {
+        case Animal::CHICKEN:               // all animals with two legs
+        case Animal::OSTRICH:   legs = 2; break;
+
+        case Animal::CAT:                   // all animals with four legs
+        case Animal::DOG:
+        case Animal::GOAT:
+        case Animal::PIG:       legs = 4; break;
+
+        default:                std::cout << "???"; return;
+    }
+
+    std::cout << "A " << getAnimalName(animal) << " has " << legs << " legs.\n";
+}
+
+
+int main()
+{
+    printNumberOfLegs(Animal::CAT);
+    printNumberOfLegs(Animal::CHICKEN);
+
+    return 0;
+}
+#endif // quiz2
+
