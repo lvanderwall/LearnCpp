@@ -1,4 +1,4 @@
-#define quiz1
+#define quiz2
 
 #ifdef quiz1
 #include <iostream>
@@ -65,3 +65,60 @@ int main()
     return 0;
 }
 #endif // quiz1
+#ifdef quiz2
+#include <iostream>
+
+
+// fraction struct
+struct Fraction {
+    int num;
+    int den;
+};
+
+
+// multiplies two fractions
+void multiply(Fraction x1, Fraction x2)
+{
+    // static_cast<double>() to prevent integer division
+    std::cout << "x1 * x2 = "
+              << (static_cast<double>(x1.num) * x2.num) / (x1.den * x2.den);
+}
+
+
+// lets user enter an int
+int getInt()
+{
+    int x;
+    std::cin >> x;
+    std::cin.ignore(32767, '\n');
+    return x;
+}
+
+
+// lets user enter a fraction
+Fraction getFraction()
+{
+    Fraction f;
+    std::cout << "Numerator (integer):\t";
+    f.num = getInt();
+    std::cout << "Denominator (integer):\t";
+    f.den = getInt();
+    std::cout << '\n';
+
+    return f;
+}
+
+
+int main()
+{
+    std::cout << "Enter a fraction f1:\n";
+    Fraction f1 = getFraction();
+
+    std::cout << "\nEnter another fraction f2:\n";
+    Fraction f2 = getFraction();
+
+    multiply(f1, f2);
+
+    return 0;
+}
+#endif // quiz2
