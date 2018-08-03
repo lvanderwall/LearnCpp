@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3
 
 #ifdef quiz1
 #include <iostream>
@@ -40,7 +40,9 @@ int getInt()
     } while( (x < 0) || (x > 9) );
 
     return x;
-}
+}if(array[i] == value){
+            std::cout << "\narray[" << i << "] = " << value << '\n';
+            break;              // no need to search the rest of the array
 
 
 int main()
@@ -54,7 +56,9 @@ int main()
     int value{ getInt() };
 
     // last element: array(length - 1) => check "i < length", NOT "i <= length"
-    for(int i{0}; i < length; ++i)
+    for(iif(array[i] == value){
+            std::cout << "\narray[" << i << "] = " << value << '\n';
+            break;              // no need to search the rest of the arraynt i{0}; i < length; ++i)
         std::cout << array[i] << ' ';
 
     // array indices start with 0 => use "index-1"
@@ -69,3 +73,23 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3
+#include <iostream>
+
+int main()
+{
+    int scores[] = { 84, 92, 76, 81, 56 };
+    const int numStudents = sizeof(scores) / sizeof(scores[0]);
+
+    int maxIndex = 0; // keep track of index of larges score
+
+    // now look for a larger score
+    for (int student = 0; student < numStudents; ++student)
+        if (scores[student] > scores[maxIndex])
+            maxIndex = student;
+
+    std::cout << "The best score was " << scores[maxIndex] << '\n';
+
+    return 0;
+}
+#endif // quiz3
