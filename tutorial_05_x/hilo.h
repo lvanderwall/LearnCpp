@@ -10,4 +10,7 @@ void hiLo();
 // prompts user to play agains
 bool playAgain();
 
+// prompts user to guess the number
+int guessInt(int guessCount);
+
 #endif // HILO_H

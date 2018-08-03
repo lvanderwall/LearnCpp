@@ -14,9 +14,7 @@ void hiLo()
         guessCount{1};
 
     do {
-        std::cout << "Guess #" << guessCount << ": ";
-        int guess{0};
-        std::cin >> guess;
+        int guess{ guessInt(guessCount)};// prompt user to guess
 
         if      (guess < code) std::cout << "Your guess is too low.\n";
         else if (guess > code) std::cout << "Your guess is too high.\n";
@@ -52,6 +50,26 @@ int getRandomNumber(int min, int max)
 
     std::uniform_int_distribution<> uniform_dist(min, max);
     return uniform_dist(mt);            // use mt to generate a random number
+}
+
+
+int guessInt(int guessCount)
+{
+    int guess{0};
+    while(1) {                              // loop until valid input
+        std::cout << "Guess #" << guessCount << ": ";
+        std::cin >> guess;
+
+        if(std::cin.fail()) {               // extraction error
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');   // clear input buffer
+        }
+
+        else {
+            std::cin.ignore(32767, '\n');   // clear input buffer
+            return guess;
+        }
+    }
 }
 
 
