@@ -21,6 +21,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="constants.h" />
+		<Unit filename="hilo.cpp" />
+		<Unit filename="hilo.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

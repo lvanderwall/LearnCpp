@@ -1,4 +1,4 @@
-#define quiz1
+#define quiz2
 
 #ifdef quiz1
 #include <iostream>
@@ -50,3 +50,17 @@ double getHeight()
     return h;
 }
 #endif // quiz1
+#ifdef quiz2
+#include <iostream>
+#include "hilo.h"
+
+
+int main()
+{
+    do{
+        hiLo();
+    } while(playAgain());
+
+    return 0;
+}
+#endif // quiz2
