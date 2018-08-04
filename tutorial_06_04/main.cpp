@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3
 
 #ifdef quiz1
 /*
@@ -53,3 +53,27 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3
+#include <iostream>
+#include <utility>      // for std::swap
+
+
+int main()
+{
+    int array[] { 6, 3, 2, 9, 7, 1, 5, 4, 8 };
+    const int length{ sizeof(array) / sizeof(array[0]) };
+
+    // bubbleSort() (unoptimized)
+    // sort (length-1) elements, the last element will be sorted automatically
+    for(int i{0}; i < length - 1; ++i)      // C
+        // compare (length-1) elements, the last has none to compare against
+        for(int j{0}; j < length - 1; ++j)  // A, B
+            if(array[j] > array[j + 1]) std::swap(array[j], array[j + 1]);
+
+    // print array
+    for(int i{0}; i < length; ++i)
+        std::cout << array[i] << ' ';
+
+    return 0;
+}
+#endif // quiz3
