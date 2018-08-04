@@ -1,4 +1,4 @@
-#define quiz3
+#define quiz4
 
 #ifdef quiz1
 /*
@@ -77,3 +77,37 @@ int main()
     return 0;
 }
 #endif // quiz3
+#ifdef quiz4
+#include <iostream>
+#include <utility>      // for std::swap
+
+
+int main()
+{
+    int array[] { 6, 3, 2, 9, 7, 1, 5, 4, 8 };
+    const int length{ sizeof(array) / sizeof(array[0]) };
+
+    // bubbleSort() (optimized)
+    // sort (length-1) elements, the last element will be sorted automatically
+    for(int last{length - 1}; last > 0; --last) {   // set last element to check
+        bool swapped{false};                        // check if swaps occur in one iteration
+
+        for(int j{0}; j < last - 1; ++j)            // op 1: don't re-check sorted elements
+            if(array[j] > array[j + 1]) {
+                swapped = true;
+                std::swap(array[j], array[j + 1]);
+            }
+
+        if(!swapped) {                              // op 2: early termination
+            std::cout << "Early termination on iteration " << length - last << '\n';
+            break;
+        }
+    }
+
+    // print array
+    for(int i{0}; i < length; ++i)
+        std::cout << array[i] << ' ';
+
+    return 0;
+}
+#endif // quiz4
