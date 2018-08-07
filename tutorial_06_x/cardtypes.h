@@ -1,6 +1,9 @@
 #ifndef CARDTYPES_H
 #define CARDTYPES_H
 
+#include <array>    // for std::array
+
+
 namespace cardGame {
     // declare card ranks and suits for a blackjack deck
     // -> half a rommée deck without jokers
@@ -33,6 +36,9 @@ namespace cardGame {
         CardRank rank;
         CardSuit suit;
     };
+
+    // a black jack deck has 52 cards
+    typedef std::array<Card, 52> deck_t;
 }
 
 #endif // CARDTYPES_H
