@@ -138,6 +138,7 @@ int main()
 #ifdef quiz6
 #include <iostream>
 #include "cardtypes.h"
+#include "cardgame.h"
 
 
 int main()
