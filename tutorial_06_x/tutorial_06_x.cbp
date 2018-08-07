@@ -20,6 +20,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="cardtypes.h" />
 		<Unit filename="items.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="students.h" />

@@ -1,4 +1,4 @@
-#define quiz4
+#define quiz6
 
 #ifdef quiz1
 #include <iostream>
@@ -135,3 +135,13 @@ int main()
     return 0;
 }
 #endif // quiz4
+#ifdef quiz6
+#include <iostream>
+#include "cardtypes.h"
+
+
+int main()
+{
+    return 0;
+}
+#endif
