@@ -28,6 +28,11 @@ namespace cardGame {
         CS_SPADES,  // =  3
         CS_MAX_SUIT // =  4
     };
+
+    struct Card {
+        CardRank rank;
+        CardSuit suit;
+    };
 }
 
 #endif // CARDTYPES_H
