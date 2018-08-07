@@ -1,4 +1,4 @@
-#define quiz3
+#define quiz4
 
 #ifdef quiz1
 #include <iostream>
@@ -114,3 +114,24 @@ int main()
     return 0;
 }
 #endif // quiz3
+#ifdef quiz4
+#include <iostream>
+
+
+// prints a C-style string character by character
+// use const char *s, so we can't change s by accident
+void printStr(const char *s)
+{
+    while(*s)                       // while(*s != '\0'), we haven't reached a terminator
+        std::cout << *s++ << ' ';   // print *s and THEN increase it (postfix!)
+}
+
+
+int main()
+{
+    const char* s{"Hello, world!"};
+    printStr(s);
+
+    return 0;
+}
+#endif // quiz4
