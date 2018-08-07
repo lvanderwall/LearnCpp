@@ -22,6 +22,7 @@
 		</Compiler>
 		<Unit filename="items.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="students.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

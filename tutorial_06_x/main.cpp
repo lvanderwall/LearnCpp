@@ -1,4 +1,4 @@
-#define quiz1
+#define quiz2
 
 #ifdef quiz1
 #include <iostream>
@@ -29,3 +29,64 @@ int main()
 }
 
 #endif // quiz1
+#ifdef quiz2
+#include <iostream>
+#include <utility>
+#include "students.h"
+
+
+// selection sort (optimized, descending order by grades)
+void selectionSort(Student *const students, const int length)
+{
+    for(int i{0}; i < length - 1; ++i) {            // sort n-1 elements => last one is sorted automatically
+        int maxIndex{i};
+        for(int j{i + 1}; j < length; ++j)          // iterate through remaining unsorted elements
+            if(students[j].grade > students[maxIndex].grade) maxIndex = j;
+
+        std::swap(students[i], students[maxIndex]); // sort i'th element
+    }
+}
+
+
+// prompts user to enter an integer
+int getInt()
+{
+    int x;
+    std::cin >> x;
+    std::cin.ignore(32767, '\n');                   // ignore trailing '\n'
+
+    return x;
+}
+
+
+int main()
+{
+    std::cout << "How many students do you want to enter: ";
+    const int maxStudents{ getInt() };
+
+    // allocate memory for students, use new[] to allocate an array
+    Student *students{ new Student[maxStudents] };
+
+    // enter all students
+    for(int i{0}; i < maxStudents; ++i) {
+        std::cout << "First name:\t\t";
+        std::getline(std::cin, students[i].surname);
+
+        std::cout << "Grade (0 <= n <= 100):\t";
+        students[i].grade = getInt();
+    }
+    std::cout << '\n';
+
+    // sort students by grade
+    selectionSort(students, maxStudents);
+
+    // output all students
+    for(int i{0}; i < maxStudents; ++i)
+        std::cout << students[i].surname << " got a grade of " << students[i].grade << '\n';
+
+    // free memory, use delete[] to free memory of an array
+    delete[] students;          // goes out of scope now, no need to set it to "nullptr"
+
+    return 0;
+}
+#endif // quiz2
