@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3
 
 #ifdef quiz1
 #include <iostream>
@@ -90,3 +90,27 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3
+#include <iostream>
+
+
+void swap(int &x, int &y)
+{
+    int temp{x};    // save x so it doesn't get lost in the next line...
+    x = y;          // ... when we overwrite x with y
+    y = temp;
+}
+
+
+int main()
+{
+    int x = 1,
+        y = 2;
+    swap(x, y);
+
+    if( (x == 2) && (y == 1) ) std::cout << "swap() works\n";   // test it
+    else                       std::cout << "swap() is broken\n";
+
+    return 0;
+}
+#endif // quiz3
