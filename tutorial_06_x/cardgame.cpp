@@ -29,5 +29,13 @@ namespace cardGame {
             case cardGame::CS_SPADES:   std::cout << 'S'; break;
             default:                    std::cout << "Invalid card suit!"; return;
         }
+
+        std::cout << ' ';
+    }
+
+
+    void printDeck(const deck_t &deck)
+    {
+        for(auto card: deck) printCard(card);
     }
 }

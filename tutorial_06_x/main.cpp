@@ -153,6 +153,8 @@ int main()
             deck[card].rank = static_cast<CardRank>(rank);
         }
 
+    printDeck(deck);
+
     return 0;
 }
 #endif
