@@ -9,28 +9,28 @@ namespace cardGame {
     void printCard(const Card &card)
     {
         switch(card.rank) {
-            case cardGame::CR_02:
-            case cardGame::CR_03:
-            case cardGame::CR_04:
-            case cardGame::CR_05:
-            case cardGame::CR_06:
-            case cardGame::CR_07:
-            case cardGame::CR_08:
-            case cardGame::CR_09:       std::cout << card.rank + 2; break;  // +2: rank offset (cardtypes.h)
-            case cardGame::CR_10:       std::cout << 'T';           break;
-            case cardGame::CR_JACK:     std::cout << 'J';           break;
-            case cardGame::CR_QUEEN:    std::cout << 'Q';           break;
-            case cardGame::CR_KING:     std::cout << 'K';           break;
-            case cardGame::CR_ACE:      std::cout << 'A';           break;
-            default:                    std::cout << "Invalid card rank!"; return;
+            case CR_02:
+            case CR_03:
+            case CR_04:
+            case CR_05:
+            case CR_06:
+            case CR_07:
+            case CR_08:
+            case CR_09:     std::cout << card.rank + 2; break;  // +2: rank offset (cardtypes.h)
+            case CR_10:     std::cout << 'T';           break;
+            case CR_JACK:   std::cout << 'J';           break;
+            case CR_QUEEN:  std::cout << 'Q';           break;
+            case CR_KING:   std::cout << 'K';           break;
+            case CR_ACE:    std::cout << 'A';           break;
+            default:        std::cout << "Invalid card rank!"; return;
         }
 
         switch(card.suit) {
-            case cardGame::CS_CLUBS:    std::cout << 'C'; break;
-            case cardGame::CS_DIAMONDS: std::cout << 'D'; break;
-            case cardGame::CS_HEARTS:   std::cout << 'H'; break;
-            case cardGame::CS_SPADES:   std::cout << 'S'; break;
-            default:                    std::cout << "Invalid card suit!"; return;
+            case CS_CLUBS:      std::cout << 'C'; break;
+            case CS_DIAMONDS:   std::cout << 'D'; break;
+            case CS_HEARTS:     std::cout << 'H'; break;
+            case CS_SPADES:     std::cout << 'S'; break;
+            default:            std::cout << "Invalid card suit!"; return;
         }
 
         std::cout << ' ';
@@ -76,20 +76,20 @@ namespace cardGame {
     int getCardValue(const Card &card)
     {
         switch(card.rank) {
-            case cardGame::CR_02:
-            case cardGame::CR_03:
-            case cardGame::CR_04:
-            case cardGame::CR_05:
-            case cardGame::CR_06:
-            case cardGame::CR_07:
-            case cardGame::CR_08:
-            case cardGame::CR_09:
-            case cardGame::CR_10:       return card.rank + 2;   // +2: rank offset (cardtypes.h)
-            case cardGame::CR_JACK:
-            case cardGame::CR_QUEEN:
-            case cardGame::CR_KING:     return 10;
-            case cardGame::CR_ACE:      return 11;
-            default:                    return -1;              // invalid rank
+            case CR_02:
+            case CR_03:
+            case CR_04:
+            case CR_05:
+            case CR_06:
+            case CR_07:
+            case CR_08:
+            case CR_09:
+            case CR_10:     return card.rank + 2;   // +2: rank offset (cardtypes.h)
+            case CR_JACK:
+            case CR_QUEEN:
+            case CR_KING:   return 10;
+            case CR_ACE:    return 11;
+            default:        return -1;              // invalid rank
         }
     }
 
