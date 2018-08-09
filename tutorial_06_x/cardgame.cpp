@@ -38,4 +38,12 @@ namespace cardGame {
     {
         for(auto card: deck) printCard(card);
     }
+
+
+    void swapCard(Card &c1, Card &c2)
+    {
+        Card temp = c1; // Card temp{c1}; won't work, no default copy ctor for structs?
+        c1 = c2;
+        c2 = temp;
+    }
 }
