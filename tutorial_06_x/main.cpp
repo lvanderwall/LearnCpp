@@ -1,4 +1,4 @@
-#define quiz6
+#define quiz7
 
 #ifdef quiz1
 #include <iostream>
@@ -161,3 +161,47 @@ int main()
     return 0;
 }
 #endif
+#ifdef quiz7
+#include <iostream>
+#include "cardtypes.h"
+#include "cardgame.h"
+
+
+int main()
+{
+    // only do that with your own namespaces and only inside functions!
+    using namespace cardGame;
+
+    // initialize a black jack deck (52 cards)
+    deck_t deck;
+    for(int suit{0}, card{0}; suit < CS_MAX_SUIT; ++suit)
+        for(int rank{0}; rank < CR_MAX_RANK; ++rank, ++card) {
+            deck[card].suit = static_cast<CardSuit>(suit);
+            deck[card].rank = static_cast<CardRank>(rank);
+        }
+
+    // play one round of blackjack
+    char c{'\0'};
+    do {
+        std::cout << "\n------------- Welcome to Blackjack! -------------\n\n";
+        shuffleDeck(deck);
+        if(playBlackjack(deck)) std::cout << "\nYou win -- are you counting cards?\n\n";
+        else                    std::cout << "\nYou lose -- better start counting cards!\n\n";
+
+        c = '\0';   // play again?
+        while(1) {
+            std::cout << "Continue gambling (y/n)? ";
+            std::cin >> c;
+            if(!std::cin.fail() && ((c == 'y') || (c == 'n'))) {
+                std::cout << "\n\n";
+                break;
+            }
+
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+        }
+    } while(c == 'y');
+
+    return 0;
+}
+#endif // quiz7

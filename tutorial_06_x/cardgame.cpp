@@ -91,4 +91,43 @@ namespace cardGame {
             default:                    return -1;              // invalid rank
         }
     }
+
+
+    bool hitCard(int score)
+    {
+        char c{'\0'};
+        while(1) {
+            std::cout << "> Your hand: " << score << " pt. Hit another card (y/n)? ";
+            std::cin >> c;
+            if( !std::cin.fail() && ((c == 'y') || (c == 'n')) ) return (c == 'y');
+
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+        }
+    }
+
+
+    bool playBlackjack(const deck_t &deck)
+    {
+        const Card *cardPtr{ &deck[0] };                        // points to top card in deck
+        int dealer{ getCardValue(*cardPtr++) };                 // #1, #7
+        std::cout << "The dealer has a score of " << dealer << " pt\n\n";
+
+        int player{ getCardValue(*cardPtr++) };                 // #2, #7
+        player += getCardValue(*cardPtr++);
+
+        while( (player < 21) && hitCard(player) )               // #3 - 4, don't hit if you reached 21
+            player += getCardValue(*cardPtr++);                 // #6 - 7
+
+        std::cout << "> Your hand: " << player << " pt\n\n";    // #5
+        if(player > 21) return false;                           // #8
+
+        while(dealer < 17) {
+            dealer +=getCardValue(*cardPtr++);                  // #9 - 10
+            std::cout << "The dealer got a score of " << dealer << " pt\n";
+        }
+
+        std::cout << '\n';
+        return( (dealer > 21) || (player > dealer) );           // #11 - 12
+    }
 }

@@ -19,6 +19,23 @@ namespace cardGame {
 
     // returns the black jack card value (ace == 11pt)
     int getCardValue(const Card &card);
+
+    // shows current score and prompts player to hit a card
+    bool hitCard(int score);
+
+    /*
+    bool playBlackjack(const deck_t &deck);
+        inputs:
+            deck:       reference to a shuffled deck
+
+        outputs:
+            playerWon:  bool
+
+    playBlackjack() implements one round of simplified blackjack according to
+    the 12 rules of quiz7, where aces are always soft (11pt). Returns true if
+    player wins and false otherwise
+    */
+    bool playBlackjack(const deck_t &deck);
 }
 
 #endif // CARDGAME_H
