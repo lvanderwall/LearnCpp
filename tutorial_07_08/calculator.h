@@ -19,4 +19,10 @@ typedef int (*arithmeticFcn)(int, int);
 // returns a function pointer to the function specified by operator op (+ - * /)
 arithmeticFcn getArithmeticFuntion(char op);
 
+// used for associated lists (char op -> function pointer)
+struct arithmeticStruct {
+    char op;
+    arithmeticFcn p;
+};
+
 #endif // CALCULATOR_H

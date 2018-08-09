@@ -1,6 +1,6 @@
-#define quiz1
+#define quiz2
 
-#ifdef quiz1
+#ifdef quiz2
 #include <iostream>
 #include "calculator.h"
 
@@ -18,4 +18,4 @@ int main()
               << getArithmeticFuntion(op)(x, y) << '\n';
     return 0;
 }
-#endif // quiz1
+#endif // quiz2
