@@ -59,11 +59,8 @@ int divide(int x, int y)
 
 arithmeticFcn getArithmeticFuntion(char op)
 {
-    switch(op) {
-        case '+':   return add;
-        case '-':   return subtract;
-        case '*':   return multiply;
-        case '/':   return divide;
-        default:    return nullptr;
-    }
+    for(const auto &opStruct: arthmeticArray)
+        if(opStruct.op == op) return opStruct.p;
+
+    return nullptr;         // invalid operator
 }
