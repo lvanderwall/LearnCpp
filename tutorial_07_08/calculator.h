@@ -13,4 +13,7 @@ int subtract(int x, int y);
 int multiply(int x, int y);
 int divide  (int x, int y); // use integer division
 
+// using arithmeticFcn = int (*)(int, int);     // C++11 type alias
+typedef int (*arithmeticFcn)(int, int);
+
 #endif // CALCULATOR_H
