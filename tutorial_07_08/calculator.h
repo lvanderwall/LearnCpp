@@ -16,4 +16,7 @@ int divide  (int x, int y); // use integer division
 // using arithmeticFcn = int (*)(int, int);     // C++11 type alias
 typedef int (*arithmeticFcn)(int, int);
 
+// returns a function pointer to the function specified by operator op (+ - * /)
+arithmeticFcn getArithmeticFuntion(char op);
+
 #endif // CALCULATOR_H

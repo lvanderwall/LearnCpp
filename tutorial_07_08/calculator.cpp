@@ -1,4 +1,5 @@
 #include <iostream>
+#include "calculator.h"     // for arithmeticFcn
 
 
 int getInt()
@@ -53,4 +54,16 @@ int multiply(int x, int y)
 int divide(int x, int y)
 {
     return x / y;
+}
+
+
+arithmeticFcn getArithmeticFuntion(char op)
+{
+    switch(op) {
+        case '+':   return add;
+        case '-':   return subtract;
+        case '*':   return multiply;
+        case '/':   return divide;
+        default:    return nullptr;
+    }
 }
