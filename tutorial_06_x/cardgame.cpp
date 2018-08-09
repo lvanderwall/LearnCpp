@@ -125,7 +125,7 @@ namespace cardGame {
     }
 
 
-    bool playBlackjack(const deck_t &deck)
+    GameResult playBlackjack(const deck_t &deck)
     {
         const Card *cardPtr{ &deck[0] };                        // points to top card in deck
         Player dealer{0, false},                                // start with a hard hand at 0 pt
@@ -142,7 +142,7 @@ namespace cardGame {
 
         std::cout << "> Your hand: " << player.score << " pt"   // #5
                   << ((dealer.soft) ? " (soft)" : "") << "\n\n";
-        if(player.score > 21) return false;                     // #8
+        if(player.score > 21) return GameResult::DEALER_WINS;   // #8
 
         while(dealer.score < 17) {
             drawCard(cardPtr, dealer);                          // #9 - 10
@@ -151,7 +151,12 @@ namespace cardGame {
         }
 
         std::cout << '\n';
-        return( (dealer.score > 21)
-             || (player.score > dealer.score) );                // #11 - 12
+        if((dealer.score > 21) || (player.score > dealer.score))// #11 - 12
+            return GameResult::PLAYER_WINS;
+
+        else if( dealer.score > player.score )
+            return GameResult::DEALER_WINS;
+
+        return GameResult::TIE;                                 // tie
     }
 }

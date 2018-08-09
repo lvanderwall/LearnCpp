@@ -11,6 +11,13 @@ namespace cardGame {
         bool soft;      // true, if player hand is soft (has one ace worth 11pt)
     };
 
+    // outcomes of a black jack game
+    enum class GameResult {
+        PLAYER_WINS,
+        DEALER_WINS,
+        TIE
+    };
+
     // prints a card as a 2-letter code
     void printCard(const Card &card);
 
@@ -33,18 +40,18 @@ namespace cardGame {
     void drawCard(const Card *&cardPtr, Player &player);
 
     /*
-    bool playBlackjack(const deck_t &deck);
+    GameResult playBlackjack(const deck_t &deck);
         inputs:
             deck:       reference to a shuffled deck
 
         outputs:
-            playerWon:  bool
+            gameResult: GameResult
 
     playBlackjack() implements one round of simplified blackjack according to
-    the 12 rules of quiz7 and also implements soft / hard aces. Returns true if
-    player wins and false otherwise
+    the 12 rules of quiz7 and also implements soft / hard aces. Returns one of
+    three game results.
     */
-    bool playBlackjack(const deck_t &deck);
+    GameResult playBlackjack(const deck_t &deck);
 }
 
 #endif // CARDGAME_H

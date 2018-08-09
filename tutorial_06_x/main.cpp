@@ -185,8 +185,12 @@ int main()
     do {
         std::cout << "\n------------- Welcome to Blackjack! -------------\n\n";
         shuffleDeck(deck);
-        if(playBlackjack(deck)) std::cout << "\nYou win -- are you counting cards?\n\n";
-        else                    std::cout << "\nYou lose -- better start counting cards!\n\n";
+        switch(playBlackjack(deck)) {
+            case GameResult::DEALER_WINS:   std::cout << "\nYou lose -- better start counting cards!\n\n";  break;
+            case GameResult::PLAYER_WINS:   std::cout << "\nYou win -- are you counting cards?\n\n";        break;
+            case GameResult::TIE:           std::cout << "\nTie -- better try harder next time!\n\n";       break;
+            default:                        std::cout << "\nThis cannot happen -- you cheat!\n\n";          break;
+        }
 
         c = '\0';   // play again?
         while(1) {
