@@ -142,7 +142,8 @@ int main()
 
 
 int main()
-{   // only do that with your own namespaces and only inside functions!
+{
+    // only do that with your own namespaces and only inside functions!
     using namespace cardGame;
 
     // initialize a black jack deck (52 cards)

@@ -4,7 +4,7 @@
 #include "cardtypes.h"  // for cardGame::Card
 
 
-namespace cardGame{
+namespace cardGame {
     // prints a card as a 2-letter code
     void printCard(const Card &card);
 
