@@ -25,4 +25,12 @@ struct arithmeticStruct {
     arithmeticFcn p;
 };
 
+// associated list of basic arithmetic operators (char op -> function pointer)
+const arithmeticStruct arthmeticArray[] {
+    {'+', add},
+    {'-', subtract},
+    {'*', multiply},
+    {'/', divide}
+};
+
 #endif // CALCULATOR_H
