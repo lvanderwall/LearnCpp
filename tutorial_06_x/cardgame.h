@@ -5,6 +5,12 @@
 
 
 namespace cardGame {
+    // combine player score and soft status
+    struct Player {
+        int score;      // current player score
+        bool soft;      // true, if player hand is soft (has one ace worth 11pt)
+    };
+
     // prints a card as a 2-letter code
     void printCard(const Card &card);
 
@@ -21,7 +27,10 @@ namespace cardGame {
     int getCardValue(const Card &card);
 
     // shows current score and prompts player to hit a card
-    bool hitCard(int score);
+    bool hitCard(const Player &player);
+
+    // draw a card, update score and soft status of player
+    void drawCard(const Card *&cardPtr, Player &player);
 
     /*
     bool playBlackjack(const deck_t &deck);
@@ -32,7 +41,7 @@ namespace cardGame {
             playerWon:  bool
 
     playBlackjack() implements one round of simplified blackjack according to
-    the 12 rules of quiz7, where aces are always soft (11pt). Returns true if
+    the 12 rules of quiz7 and also implements soft / hard aces. Returns true if
     player wins and false otherwise
     */
     bool playBlackjack(const deck_t &deck);

@@ -2,6 +2,7 @@
 #include <random>       // for std::mt19937 mersenne twister
 #include <ctime>        // for time()
 #include "cardtypes.h"  // for cardGame::Card
+#include "cardgame.h"   // for cardGame::Player, cardGame::GameResult
 
 
 namespace cardGame {
@@ -93,11 +94,12 @@ namespace cardGame {
     }
 
 
-    bool hitCard(int score)
+    bool hitCard(const Player &player)
     {
         char c{'\0'};
         while(1) {
-            std::cout << "> Your hand: " << score << " pt. Hit another card (y/n)? ";
+            std::cout << "> Your hand: " << player.score << " pt"
+                      << ((player.soft) ? " (soft)" : "") << ". Hit another card (y/n)? ";
             std::cin >> c;
             if( !std::cin.fail() && ((c == 'y') || (c == 'n')) ) return (c == 'y');
 
@@ -107,27 +109,49 @@ namespace cardGame {
     }
 
 
+    void drawCard(const Card *&cardPtr, Player &player)
+    {
+        int value{ getCardValue(*cardPtr++) };                  // draw card
+        player.score += value;                                  // update score
+
+        if(value == 11) {                                       // update soft status
+            if(player.score > 21)   player.score -= 10;         // ace counts as 1 pt
+            else                    player.soft = true;         // hard hand turns soft
+
+        } else if ((player.soft) && (player.score > 21)) {      // soft hand turns hard
+            player.score -= 10;
+            player.soft = false;
+        }
+    }
+
+
     bool playBlackjack(const deck_t &deck)
     {
         const Card *cardPtr{ &deck[0] };                        // points to top card in deck
-        int dealer{ getCardValue(*cardPtr++) };                 // #1, #7
-        std::cout << "The dealer has a score of " << dealer << " pt\n\n";
+        Player dealer{0, false},                                // start with a hard hand at 0 pt
+               player{0, false};
 
-        int player{ getCardValue(*cardPtr++) };                 // #2, #7
-        player += getCardValue(*cardPtr++);
+        drawCard(cardPtr, dealer);                              // #1
+        drawCard(cardPtr, player);                              // #2
+        drawCard(cardPtr, player);
+        std::cout << "The dealer has a score of " << dealer.score << " pt"
+                  << ((dealer.soft) ? " (soft)" : "") << "\n\n";
 
-        while( (player < 21) && hitCard(player) )               // #3 - 4, don't hit if you reached 21
-            player += getCardValue(*cardPtr++);                 // #6 - 7
+        while( (player.score < 21) && hitCard(player) )         // #3 - 4, don't hit if you reached 21
+            drawCard(cardPtr, player);                          // #6 - 7
 
-        std::cout << "> Your hand: " << player << " pt\n\n";    // #5
-        if(player > 21) return false;                           // #8
+        std::cout << "> Your hand: " << player.score << " pt"   // #5
+                  << ((dealer.soft) ? " (soft)" : "") << "\n\n";
+        if(player.score > 21) return false;                     // #8
 
-        while(dealer < 17) {
-            dealer +=getCardValue(*cardPtr++);                  // #9 - 10
-            std::cout << "The dealer got a score of " << dealer << " pt\n";
+        while(dealer.score < 17) {
+            drawCard(cardPtr, dealer);                          // #9 - 10
+            std::cout << "The dealer got a score of " << dealer.score << " pt"
+                      << ((dealer.soft) ? " (soft)" : "") << '\n';
         }
 
         std::cout << '\n';
-        return( (dealer > 21) || (player > dealer) );           // #11 - 12
+        return( (dealer.score > 21)
+             || (player.score > dealer.score) );                // #11 - 12
     }
 }
