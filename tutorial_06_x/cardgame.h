@@ -13,6 +13,9 @@ namespace cardGame{
 
     // swaps two cards of a black jack deck
     void swapCard(Card &c1, Card &c2);
+
+    // shuffles all cards in a black jack deck
+    void shuffleDeck(deck_t &deck);
 }
 
 #endif // CARDGAME_H

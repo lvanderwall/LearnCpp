@@ -154,6 +154,8 @@ int main()
         }
 
     printDeck(deck);
+    shuffleDeck(deck);
+    printDeck(deck);
 
     return 0;
 }
