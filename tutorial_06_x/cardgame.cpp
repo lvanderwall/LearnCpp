@@ -70,4 +70,25 @@ namespace cardGame {
         // swap each card with a random card
         for(auto &card: deck) swapCard(card, deck[dist(mt)]);
     }
+
+
+    int getCardValue(const Card &card)
+    {
+        switch(card.rank) {
+            case cardGame::CR_02:
+            case cardGame::CR_03:
+            case cardGame::CR_04:
+            case cardGame::CR_05:
+            case cardGame::CR_06:
+            case cardGame::CR_07:
+            case cardGame::CR_08:
+            case cardGame::CR_09:
+            case cardGame::CR_10:       return card.rank + 2;   // +2: rank offset (cardtypes.h)
+            case cardGame::CR_JACK:
+            case cardGame::CR_QUEEN:
+            case cardGame::CR_KING:     return 10;
+            case cardGame::CR_ACE:      return 11;
+            default:                    return -1;              // invalid rank
+        }
+    }
 }

@@ -16,6 +16,9 @@ namespace cardGame{
 
     // shuffles all cards in a black jack deck
     void shuffleDeck(deck_t &deck);
+
+    // returns the black jack card value (ace == 11pt)
+    int getCardValue(const Card &card);
 }
 
 #endif // CARDGAME_H
