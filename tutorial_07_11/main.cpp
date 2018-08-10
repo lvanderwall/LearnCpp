@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3
 
 #ifdef quiz1
 #include <iostream>
@@ -38,3 +38,21 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3
+#include <iostream>
+
+
+// prints binaries in order "MSB ... LSB"
+void printBinary(unsigned int n)    // use implicit conversion for negative integers
+{
+    if(n > 1) printBinary(n / 2);   // termination: (n == 1) || (n == 0)
+    std::cout << n % 2;             // prints current bit
+}
+
+
+int main()
+{
+    printBinary(-15);
+    return 0;
+}
+#endif // quiz3
