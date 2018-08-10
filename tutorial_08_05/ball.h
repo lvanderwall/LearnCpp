@@ -18,30 +18,18 @@ private:
     double m_radius;                // radius in units
 
 public:
-    // default constructor (ctor for short) without parameters
+    // default constructor (ctor for short) with only default parameters
     // ctors have the same name as the class and no return type (not even void)
-    Ball()
-    {
-        m_color = "black";
-        m_radius = 10.0;
-    }
-
-    // three user defined ctors with different (at least one) parameters
-    Ball(const std::string &color)
+    Ball(const std::string &color = "black", double radius = 10.0)
     {
         m_color = color;
-        m_radius = 10.0;
-    }
-
-    Ball(double radius)
-    {
-        m_color = "black";
         m_radius = radius;
     }
 
-    Ball(const std::string &color, double radius)
+    // user defined ctors with different (at least one) parameters
+    Ball(double radius)
     {
-        m_color = color;
+        m_color = "black";
         m_radius = radius;
     }
 };
