@@ -21,6 +21,18 @@ int binarySearch(int *array, int target, int min, int max)
     return -1;                                      // target not found
 }
 
+int binarySearchRec(int *array, int target, int min, int max)
+{
+    assert(array && "binarySearch(): No array!");   // make sure array exists
+    if(min > max) return -1;                        // target not found
+
+    int cen{ min + (max - min) / 2 };               // use integer division to round down, avoid overflow
+    if      (target > array[cen]) return binarySearchRec(array, target, cen + 1, max    );
+    else if (target < array[cen]) return binarySearchRec(array, target, min,     cen - 1);
+    else                          return cen;       // target found
+}
+
+
 int main()
 {
     int array[] = { 3, 6, 8, 12, 14, 17, 20, 21, 26, 32, 36, 37, 42, 44, 48 };
@@ -36,11 +48,11 @@ int main()
     for (int count=0; count < numTestValues; ++count)
     {
         // See if our test value is in the array
-        int index = binarySearch(array, testValues[count], 0, 14);
+        int index = binarySearchRec(array, testValues[count], 0, 14);
         // If it matches our expected value, then great!
         if (index == expectedValues[count])
              std::cout << "test value " << testValues[count] << " passed!\n";
-        else // otherwise, our binarySearch() function must be broken
+        else // otherwise, our binarySearchRec() function must be broken
              std::cout << "test value " << testValues[count] << " failed.  There's something wrong with your code!\n";
     }
 
