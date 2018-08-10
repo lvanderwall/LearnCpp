@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3
 
 #ifdef quiz2
 #include "point3d.h"    // no need to include <iostream>, Point3d handles output
@@ -28,3 +28,30 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3
+#include "stack.h"
+
+
+int main()
+{
+    Stack stack;
+    stack.reset();
+
+    stack.print();
+
+    stack.push(5);
+    stack.push(3);
+    stack.push(8);
+    stack.print();
+
+    stack.pop();
+    stack.print();
+
+    stack.pop();
+    stack.pop();
+
+    stack.print();
+
+    return 0;
+}
+#endif // quiz3

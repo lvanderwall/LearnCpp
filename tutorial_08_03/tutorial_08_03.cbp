@@ -22,6 +22,7 @@
 		</Compiler>
 		<Unit filename="main.cpp" />
 		<Unit filename="point3d.h" />
+		<Unit filename="stack.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
