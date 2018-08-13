@@ -21,6 +21,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="point3d.cpp" />
+		<Unit filename="point3d.h" />
+		<Unit filename="vector3d.cpp" />
+		<Unit filename="vector3d.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
