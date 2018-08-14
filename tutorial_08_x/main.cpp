@@ -1,4 +1,4 @@
-#define quiz1c
+#define quiz2
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -46,3 +46,42 @@ int main()
     return 0;
 }
 #endif // quiz1c
+#ifdef quiz2
+#include <iostream>
+
+
+class HelloWorld
+{
+private:
+    char *m_data;
+
+public:
+    HelloWorld()
+    {
+        m_data = new char[14];
+        const char *init = "Hello, World!";
+        for (int i = 0; i < 14; ++i)
+            m_data[i] = init[i];
+    }
+
+    ~HelloWorld()
+    {
+        // use array version to free memory of array member m_data
+        delete[] m_data;
+    }
+
+    void print() const
+    {
+        std::cout << m_data;
+    }
+
+};
+
+int main()
+{
+    HelloWorld hello;
+    hello.print();
+
+    return 0;
+}
+#endif // quiz2
