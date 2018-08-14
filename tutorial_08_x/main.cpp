@@ -1,4 +1,4 @@
-#define quiz4a
+#define quiz4b
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -181,3 +181,21 @@ int main()
     return 0;
 }
 #endif // quiz4a
+#ifdef quiz4b
+#include "card.h"
+#include "deck.h"
+
+
+int main()
+{
+    // srand(static_cast<unsigned int>(time(0))); // set initial seed value to system clock
+    // rand(); // If using Visual Studio, discard first random value
+
+    Deck deck;
+    deck.printDeck();
+    deck.shuffleDeck();
+    deck.printDeck();
+
+    return 0;
+}
+#endif // quiz4b
