@@ -1,4 +1,4 @@
-#define quiz4c
+#define quiz4d
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -219,3 +219,44 @@ int main()
     return 0;
 }
 #endif // quiz4c
+#ifdef quiz4d
+#include <iostream>
+#include "cardgame.h"
+#include "deck.h"
+#include "player.h"
+
+
+int main()
+{
+    // initialize a black jack deck (52 cards)
+    Deck deck;
+
+    // play one round of blackjack
+    char c{'\0'};
+    do {
+        std::cout << "\n------------- Welcome to Blackjack! -------------\n\n";
+        deck.shuffleDeck();
+        switch(playBlackjack(deck)) {
+            case GameResult::DEALER_WINS:   std::cout << "\nYou lose -- better start counting cards!\n\n";  break;
+            case GameResult::PLAYER_WINS:   std::cout << "\nYou win -- are you counting cards?\n\n";        break;
+            case GameResult::TIE:           std::cout << "\nTie -- better try harder next time!\n\n";       break;
+            default:                        std::cout << "\nThis cannot happen -- you cheat!\n\n";          break;
+        }
+
+        c = '\0';   // play again?
+        while(1) {
+            std::cout << "Continue gambling (y/n)? ";
+            std::cin >> c;
+            if(!std::cin.fail() && ((c == 'y') || (c == 'n'))) {
+                std::cout << "\n\n";
+                break;
+            }
+
+            std::cin.clear();
+            std::cin.ignore(32767, '\n');
+        }
+    } while(c == 'y');
+
+    return 0;
+}
+#endif // quiz4d
