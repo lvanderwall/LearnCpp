@@ -1,4 +1,4 @@
-#define quiz3f
+#define quiz3h
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -150,3 +150,20 @@ int main()
     return 0;
 }
 #endif // quiz3f
+#ifdef quiz3h
+#include "monster.h"
+#include "monstergenerator.h"
+
+
+int main()
+{
+    // no need, use mersenne twister instead (see monstergenerator.cpp)
+    // srand(static_cast<unsigned int>(time(0))); // set initial seed value to system clock
+    // rand(); // If using Visual Studio, discard first random value
+
+    Monster m = MonsterGenerator::generateMonster();
+    m.print();
+
+    return 0;
+}
+#endif // quiz3h

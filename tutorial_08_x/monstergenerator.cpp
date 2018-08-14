@@ -6,7 +6,31 @@
 
 Monster MonsterGenerator::generateMonster()
 {
-    return Monster(Monster::SKELETON, "Bones", "*rattle*", 4);
+    // make s_names and s_roars static to improve performance
+    static const std::string
+        s_roars[] {
+            "*roooaaarrr*",
+            "*heeheehee*",
+            "*slurp*",
+            "*rattle*",
+            "*chsssss*",
+            "*aaarrrrggh*"
+        },
+        s_names[] {
+            "Snap",
+            "Grubby",
+            "Thump",
+            "Bones",
+            "Vlad",
+            "Gurkhal"
+        };
+
+    return Monster(
+        static_cast<Monster::MonsterType>(getRandomNumber(0, Monster::MAX_MONSTER_TYPE - 1)),
+        s_names[getRandomNumber(0, 5)],
+        s_roars[getRandomNumber(0, 5)],
+        getRandomNumber(1, 100)
+    );
 }
 
 
