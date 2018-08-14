@@ -19,6 +19,12 @@ public:
         MAX_MONSTER_TYPE    // = 8
     };
 
+    // converts MonsterType into string
+    std::string getTypeString() const;
+
+    // prints monster status to the console
+    void print() const;
+
 private:
     MonsterType m_type;
     std::string m_name;
