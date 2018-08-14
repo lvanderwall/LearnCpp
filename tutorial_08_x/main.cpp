@@ -1,4 +1,4 @@
-#define quiz3e
+#define quiz3f
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -137,3 +137,16 @@ int main()
     return 0;
 }
 #endif // quiz3e
+#ifdef quiz3f
+#include "monster.h"
+#include "monstergenerator.h"
+
+
+int main()
+{
+    Monster m = MonsterGenerator::generateMonster();
+    m.print();
+
+    return 0;
+}
+#endif // quiz3f
