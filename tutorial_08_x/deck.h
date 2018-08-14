@@ -14,6 +14,9 @@ public:
     // shuffles all cards in a black jack deck
     void shuffleDeck();
 
+    // deals the top card
+    const Card& dealCard();
+
 private:
     // a black jack deck has 52 cards
     std::array<Card, Card::MAX_RANKS * Card::MAX_SUITS> m_deck;
@@ -23,6 +26,9 @@ private:
 
     // swaps two cards of a black jack deck
     static void swapCard(Card &c1, Card &c2);
+
+    // index of next card to deal
+    int m_cardIndex{0};
 
 public:
     // default ctor

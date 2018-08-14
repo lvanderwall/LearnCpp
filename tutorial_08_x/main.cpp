@@ -1,4 +1,4 @@
-#define quiz4b
+#define quiz4c
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -199,3 +199,23 @@ int main()
     return 0;
 }
 #endif // quiz4b
+#ifdef quiz4c
+#include <iostream>
+#include "card.h"
+#include "deck.h"
+
+
+int main()
+{
+    // srand(static_cast<unsigned int>(time(0))); // set initial seed value to system clock
+    // rand(); // If using Visual Studio, discard first random value
+
+    Deck deck;
+    deck.shuffleDeck();
+    deck.printDeck();
+    std::cout << "The first card has value: " << deck.dealCard().getCardValue() << '\n';
+    std::cout << "The second card has value: " << deck.dealCard().getCardValue() << '\n';
+
+    return 0;
+}
+#endif // quiz4c

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>   // for std::mt19937 and std::uniform_int_distribution
 #include <ctime>    // for time()
+#include <cassert>  // for assert()
 #include "card.h"   // for Card class
 #include "deck.h"
 
@@ -51,7 +52,19 @@ void Deck::swapCard(Card &c1, Card &c2)
 
 void Deck::shuffleDeck()
 {
+    // start dealing the first card after shuffling
+    m_cardIndex = 0;
+
     // swap each card with a random card
     for(auto &card: m_deck)
         swapCard(card, m_deck[getRandomNumber(0, Card::MAX_RANKS * Card::MAX_SUITS - 1)]);
+}
+
+
+const Card& Deck::dealCard()
+{
+    assert(m_cardIndex < Card::MAX_RANKS * Card::MAX_SUITS);
+
+    // first return reference to Card, then increase m_cardIndex
+    return m_deck[m_cardIndex++];
 }
