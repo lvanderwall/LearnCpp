@@ -1,4 +1,4 @@
-#define quiz3h
+#define quiz4a
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -167,3 +167,17 @@ int main()
     return 0;
 }
 #endif // quiz3h
+#ifdef quiz4a
+#include <iostream>
+#include "card.h"
+
+
+int main()
+{
+    const Card cardQueenHearts(Card::RANK_QUEEN, Card::SUIT_HEART);
+    cardQueenHearts.printCard();
+    std::cout << " has the value " << cardQueenHearts.getCardValue() << '\n';
+
+    return 0;
+}
+#endif // quiz4a
