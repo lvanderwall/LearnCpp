@@ -1,4 +1,4 @@
-#define quiz2
+#define quiz3a
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -85,3 +85,23 @@ int main()
     return 0;
 }
 #endif // quiz2
+#ifdef quiz3a
+
+enum MonsterType {
+    DRAGON,             // = 0
+    GOBLIN,             // = 1
+    OGRE,               // = 2
+    ORC,                // = 3
+    SKELETON,           // = 4
+    TROLL,              // = 5
+    VAMPIRE,            // = 6
+    ZOMBIE,             // = 7
+    MAX_MONSTER_TYPE    // = 8
+};
+
+
+int main()
+{
+    return 0;
+}
+#endif // quiz3a
