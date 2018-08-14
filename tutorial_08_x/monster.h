@@ -24,6 +24,15 @@ private:
     std::string m_name;
     std::string m_roar;
     int m_hitPoints;
+
+public:
+    // user defined ctor using member initializer list
+    Monster(MonsterType type, std::string name, std::string roar, int hitPoints)
+        : m_type{type},
+          m_name{name},
+          m_roar{roar},
+          m_hitPoints{hitPoints}
+    {}
 };
 
 #endif // MONSTER_H

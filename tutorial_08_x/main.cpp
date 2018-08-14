@@ -1,4 +1,4 @@
-#define quiz3b
+#define quiz3d
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -114,3 +114,14 @@ int main()
     return 0;
 }
 #endif // quiz3b
+#ifdef quiz3d
+#include "monster.h"
+
+
+int main()
+{
+    Monster skele(Monster::SKELETON, "Bones", "*rattle*", 4);
+
+    return 0;
+}
+#endif // quiz3d
