@@ -1,4 +1,4 @@
-#define quiz3a
+#define quiz3b
 
 #ifdef quiz1a
 #include "point2d.h"
@@ -105,3 +105,12 @@ int main()
     return 0;
 }
 #endif // quiz3a
+#ifdef quiz3b
+#include "monster.h"
+
+
+int main()
+{
+    return 0;
+}
+#endif // quiz3b
