@@ -8,6 +8,11 @@ public:
     // formatted output of Point2d() to console
     void print();
 
+    // returns distance between two vectors using 2-norm
+    // no need for two arguments, because distanceTo can access the members of the
+    // object it was called from
+    double distanceTo(const Point2d &p);
+
 private:
     double m_x {0.0},
            m_y {0.0};
