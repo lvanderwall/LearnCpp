@@ -7,6 +7,11 @@ public:
     // formatted output to console
     void print() const;
 
+    // addition between Fraction and integer
+    friend Fraction operator*(const Fraction &f1, const Fraction &f2);
+    friend Fraction operator*(const Fraction &f, int x);
+    friend Fraction operator*(int x, const Fraction &f);
+
 private:
     int m_num,
         m_den;
