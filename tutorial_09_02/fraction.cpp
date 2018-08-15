@@ -8,6 +8,21 @@ void Fraction::print() const
 }
 
 
+void Fraction::reduce()
+{
+    // call static functions using :: to emphasize they are static
+    int g{ Fraction::gcd(m_num, m_den) };
+    m_num /= g;
+    m_den /= g;
+}
+
+
+int Fraction::gcd(int a, int b)
+{
+    return (b == 0) ? (a > 0 ? a : -a) : gcd(b, a % b);
+}
+
+
 // overload operators using the friend method
 Fraction operator*(const Fraction &f1, const Fraction &f2)
 {
