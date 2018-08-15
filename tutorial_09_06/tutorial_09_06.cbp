@@ -20,6 +20,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="car.cpp" />
+		<Unit filename="car.h" />
 		<Unit filename="cents.cpp" />
 		<Unit filename="cents.h" />
 		<Unit filename="main.cpp" />
