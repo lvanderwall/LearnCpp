@@ -13,6 +13,10 @@ struct StudentGrade {
 
 class GradeMap
 {
+public:
+    // use student names as index to access grade
+    char& operator[](const std::string &name);
+
 private:
     std::vector<StudentGrade> m_map;
 
