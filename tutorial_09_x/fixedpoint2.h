@@ -18,6 +18,9 @@ public:
     // default ctor with default arguments, decimal and fractional get the same sign
     FixedPoint2(std::int16_t b = 0, std::int8_t d = 0);
 
+    // round double to fixed point with two decimals
+    FixedPoint2(double d);
+
     // type cast to double (use implicit cast from int to double)
     operator double() const { return m_b + m_d / 100.0; }
 };

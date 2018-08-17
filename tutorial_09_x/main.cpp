@@ -1,4 +1,4 @@
-#define quiz4b
+#define quiz4c
 
 #ifdef quiz2a
 #include <iostream>
@@ -87,3 +87,25 @@ int main()
     return 0;
 }
 #endif // quiz4b
+#ifdef quiz4c
+#include <iostream>
+#include "fixedpoint2.h"
+
+
+int main()
+{
+    FixedPoint2 a(0.01);
+    std::cout << a << '\n';
+
+    FixedPoint2 b(-0.01);
+    std::cout << b << '\n';
+
+    FixedPoint2 c(5.01); // stored as 5.0099999... so we'll need to round this
+    std::cout << c << '\n';
+
+    FixedPoint2 d(-5.01); // stored as -5.0099999... so we'll need to round this
+    std::cout << d << '\n';
+
+    return 0;
+}
+#endif // quiz4c
