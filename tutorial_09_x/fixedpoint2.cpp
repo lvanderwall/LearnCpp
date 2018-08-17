@@ -33,7 +33,35 @@ FixedPoint2::FixedPoint2(double d)
 {}
 
 
+FixedPoint2 FixedPoint2::operator-() const
+{
+    return FixedPoint2(-m_b, -m_d); // uniform initialization leads to integer promotion here
+}
+
+
+FixedPoint2 operator+(const FixedPoint2 &x, const FixedPoint2 &y)
+{
+    return FixedPoint2{ static_cast<double>(x) + static_cast<double>(y) };
+}
+
+
+bool operator==(const FixedPoint2 &x, const FixedPoint2 &y)
+{
+    return (x.m_b == y.m_b) && (x.m_d == y.m_d);
+}
+
+
 std::ostream& operator<<(std::ostream &out, const FixedPoint2 &x)
 {
     return out << static_cast<double>(x);
+}
+
+
+std::istream& operator>>(std::istream &in, FixedPoint2 &x)
+{
+    double d;
+    in >> d;
+    x = FixedPoint2(d);         // use default operator=(), shallow copy is enough
+
+    return in;
 }
